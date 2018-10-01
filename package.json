@@ -1,0 +1,44 @@
+{
+  "name": "newer-volcanics",
+  "description": "Newer Volcanics",
+  "version": "1.0.0",
+  "author": "Stuart Flanagan <stuart.flanagan@gmail.com>",
+  "dependencies": {
+    "@sindresorhus/class-names": "^0.1.0",
+    "gatsby": "^2.0.0",
+    "gatsby-image": "^2.0.12",
+    "gatsby-plugin-manifest": "^2.0.2",
+    "gatsby-plugin-offline": "^2.0.5",
+    "gatsby-plugin-postcss": "^2.0.0",
+    "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-sharp": "^2.0.5",
+    "gatsby-source-contentful": "^2.0.1",
+    "gatsby-transformer-remark": "^2.1.3",
+    "postcss-preset-env": "^6.0.7",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-helmet": "^5.2.0",
+    "react-mapkit": "^0.5.0"
+  },
+  "keywords": [
+    "The Orbweavers",
+    "Gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "deploy": "surge --domain newer-volcanics.surge.sh ./public/",
+    "format": "prettier --write '**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "jsonwebtoken": "^8.3.0",
+    "prettier": "^1.14.2",
+    "dotenv": "^6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  }
+}

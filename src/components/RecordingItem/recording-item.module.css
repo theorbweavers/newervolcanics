@@ -1,0 +1,50 @@
+.heading {
+  text-align: center;
+}
+.heading > * {
+  position: relative;
+}
+.heading > *:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(-3.5rem - 1px);
+  left: calc(50% - 1px);
+  width: 1px;
+  height: calc(3.5rem + 1px);
+  background: #ffffff;
+}
+.track-number {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 3.5rem auto;
+  line-height: 3.5rem;
+  border: solid 1px #ffffff;
+  border-radius: 100%;
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.title {
+  display: block;
+  text-align: center;
+  border-top: solid 1px #000;
+  border-bottom: solid 1px #000;
+}
+
+.title a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  padding: 1rem 0;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.title a:hover,
+.title a:focus {
+  background: rgba(255, 255, 255, 0.9);
+}

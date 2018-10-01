@@ -1,0 +1,57 @@
+/* Footer */
+.footer:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(-3.5rem - 1px);
+  left: calc(50% - 1px);
+  width: 1px;
+  height: calc(3.5rem + 1px);
+  background: #ffffff;
+}
+
+.footer {
+  transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out,
+    opacity 0.325s ease-in-out;
+  width: 100%;
+  max-width: 100%;
+
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.logo {
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: 3.5rem auto 1rem;
+  line-height: 5.5rem;
+  border: solid 1px #ffffff;
+  border-radius: 100%;
+}
+.copyright {
+  font-size: 0.6rem;
+  opacity: 0.75;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.footer a {
+  color: #fff;
+}
+
+.blur {
+  transform: scale(0.95);
+
+  filter: blur(0.1rem);
+  opacity: 0;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.volcano {
+  font-size: 3rem;
+  margin-top: 2rem;
+}

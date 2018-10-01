@@ -1,0 +1,49 @@
+.article:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(-3.5rem - 1px);
+  left: calc(50% - 1px);
+  width: 1px;
+  height: calc(3.5rem + 1px);
+  background: #ffffff;
+}
+
+.article {
+  position: relative;
+  z-index: 2;
+  border-top: solid 1px #000000;
+  border-bottom: solid 1px #000000;
+}
+.article h1 {
+  display: block;
+  text-align: center;
+  border-top: solid 1px #000;
+  border-bottom: solid 1px #000;
+}
+
+.content {
+  color: #333;
+  background: rgba(255, 255, 255, 0.8);
+  transition: max-height 0.75s ease, padding 0.75s ease,
+    opacity 0.325s ease-in-out;
+  transition-delay: 0.25s;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.inner > :last-child {
+  margin-bottom: 0;
+}
+
+.content p {
+  letter-spacing: 0.05rem;
+  font-size: 0.8rem;
+  line-height: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 1rem;
+  }
+}
