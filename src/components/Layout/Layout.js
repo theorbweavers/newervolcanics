@@ -30,7 +30,7 @@ const Layout = ({ children }) => (
         >
           <html lang="en" />
           <link
-            href="https://fonts.googleapis.com/css?family=Cinzel|Montserrat"
+            href="https://fonts.googleapis.com/css?family=Roboto:500|Cinzel|Montserrat"
             rel="stylesheet"
           />
         </Helmet>

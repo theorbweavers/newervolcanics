@@ -16,10 +16,12 @@
 
 .siteName {
   padding: 1rem 0;
-  font-family: 'Cinzel', serif;
-  font-size: 2rem;
+  /* font-family: 'Cinzel', serif; */
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.99rem;
   border-top: solid 1px #ffffff;
   border-bottom: solid 1px #ffffff;
+  text-transform: uppercase;
 }
 
 .header > * {

@@ -316,7 +316,8 @@ h4,
 h4,
 h5,
 h6 {
-  font-family: 'Cinzel', serif;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
 }
 hgroup {
   margin-left: 0;
