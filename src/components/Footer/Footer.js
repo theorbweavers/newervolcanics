@@ -6,10 +6,12 @@ import styles from './footer.module.css';
 const Footer = props => (
   <footer className={styles.footer}>
     <div className={styles.logo}>
-      <img src={logo} />
+      <a href="http://www.theorbweavers.com">
+        <img src={logo} alt="The Orbweavers - Logo" />
+      </a>
     </div>
     <p className={styles.copyright}>
-      &copy; <a href="https://www.theorbweavers.com">The Orbweavers</a>
+      &copy; <a href="http://www.theorbweavers.com">The Orbweavers</a>
     </p>
   </footer>
 );

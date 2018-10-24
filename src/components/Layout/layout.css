@@ -5,6 +5,7 @@ html {
 }
 body {
   margin: 0;
+  background: #000;
 }
 article,
 aside,
@@ -626,15 +627,14 @@ pre tt:after {
 .main {
   position: relative;
   z-index: 2;
-  max-width: 66%;
+  max-width: 54rem;
   margin: 0 auto;
 }
 
 /* On screens that are 600px or less, set the background color to olive */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
   .main {
     max-width: 100%;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin: 0 1rem;
   }
 }

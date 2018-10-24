@@ -12,7 +12,6 @@ const propTypes = {
 
 class PostTemplate extends React.Component {
   render() {
-    console.log('Test', this.props);
     const data = this.props.data.contentfulPost;
     return <Article data={data} />;
   }

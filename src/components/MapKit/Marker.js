@@ -4,6 +4,15 @@ import * as React from 'react';
 
 import { MapKitContext } from './index';
 
+const landmarkAnnotationCallout = {
+  calloutAnchorOffsetForAnnotation: function(annotation, element) {
+    return new DOMPoint(7, 7);
+  },
+  // calloutAppearanceAnimationForAnnotation: function(annotation) {
+  //   return 'scale-and-fadein .4s 0 1 normal cubic-bezier(0.4, 0, 0, 1.5)';
+  // },
+};
+
 class Marker extends React.Component {
   marker;
 
@@ -15,14 +24,14 @@ class Marker extends React.Component {
 
   constructor(props) {
     super(props);
-
-    const markerProps = this.getMarkerConstructionProps(props);
-
+    const { map, latitude, longitude, calloutElement, ...otherProps } = props;
+    if (calloutElement) {
+      landmarkAnnotationCallout.calloutElementForAnnotation = calloutElement;
+    }
     this.marker = new window.mapkit.MarkerAnnotation(
       new window.mapkit.Coordinate(props.latitude, props.longitude),
-      markerProps
+      { ...otherProps, callout: landmarkAnnotationCallout }
     );
-
     this.props.map.addAnnotation(this.marker);
   }
 

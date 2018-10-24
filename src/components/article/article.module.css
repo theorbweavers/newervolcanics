@@ -15,11 +15,14 @@
   border-top: solid 1px #fff;
   border-bottom: solid 1px #fff;
 }
-.article h1 {
+.article h1,
+.article h2 {
   display: block;
   text-align: center;
-  border-top: solid 1px #000;
-  border-bottom: solid 1px #000;
+}
+
+.article h2 {
+  font-size: 1.4rem;
 }
 
 .content {

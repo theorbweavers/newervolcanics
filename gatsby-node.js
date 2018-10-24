@@ -45,9 +45,9 @@ const createPageFromContentType = (contentType, graphql, createPage) => {
         const template = pageTemplate
           ? pageTemplate
           : path.resolve(contentType.template);
-
+        console.log('content', edge.node);
         createPage({
-          path: `${contentType.path}${edge.node.slug}.html`,
+          path: `${contentType.path}/${edge.node.slug}.html`,
           component: slash(template),
           context: {
             id: edge.node.id,

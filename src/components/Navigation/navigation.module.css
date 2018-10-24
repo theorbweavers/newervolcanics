@@ -28,18 +28,15 @@
   border-bottom: 0;
   text-decoration: none;
   color: #fff;
+  transition: background-color 0.5s ease-in-out, color 0.2s ease-in-out;
 }
 
-.navigation ul li a:hover {
+.navigation ul li a:hover,
+.navigation ul li a:active,
+.navigation ul li a.active {
   color: #111111;
   background: rgba(255, 255, 255, 0.75);
   text-decoration: none;
-}
-
-.navigation ul li a:active {
-  text-decoration: none;
-
-  background: rgba(255, 255, 255, 0.75);
 }
 
 /* On screens that are 600px or less, set the background color to olive */

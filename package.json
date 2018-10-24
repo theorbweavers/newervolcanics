@@ -14,21 +14,31 @@
     "gatsby-plugin-sharp": "^2.0.5",
     "gatsby-source-contentful": "^2.0.1",
     "gatsby-transformer-remark": "^2.1.3",
+    "little-loader": "^0.2.0",
     "postcss-preset-env": "^6.0.7",
     "react": "^16.5.1",
+    "react-avatar": "^3.4.6",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
-    "react-mapkit": "^0.5.0"
+    "react-pose": "^3.3.6"
   },
   "keywords": [
     "The Orbweavers",
     "Gatsby"
   ],
+  "config": {
+    "newervolcanics": {
+      "bucketName": "orb-newervolcanics",
+      "directory": "www"
+    }
+  },
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "deploy": "surge --domain newer-volcanics.surge.sh ./public/",
+    "publish": "gatsby build && npm run deploy:dev",
+    "deploy:dev": "surge --domain newer-volcanics.surge.sh ./public/",
+    "deploy:prod": "aws s3 cp ./public/ s3://$npm_package_config_newervolcanics_bucketName/$npm_package_config_newervolcanics_directory/ --recursive --profile sf --region ap-southeast-2 --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers",
     "format": "prettier --write '**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

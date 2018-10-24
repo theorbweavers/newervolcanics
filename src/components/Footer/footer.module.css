@@ -15,11 +15,10 @@
     opacity 0.325s ease-in-out;
   width: 100%;
   max-width: 100%;
-
+  margin: 1rem auto;
   text-align: center;
   color: #fff;
   position: relative;
-  z-index: 1;
 }
 .logo {
   width: 5.5rem;

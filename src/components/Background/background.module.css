@@ -1,5 +1,6 @@
 /* BG */
 .background {
+  background: #000;
   transform: scale(1);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -26,11 +27,7 @@
   transition: opacity 5s ease-in-out;
   transition-delay: 0.5s;
   background-color: #000;
-  opacity: 0.9;
-}
-
-.fadeIn:after {
-  opacity: 0.6;
+  opacity: 0.66;
 }
 
 .background:before {

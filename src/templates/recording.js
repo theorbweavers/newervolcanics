@@ -52,12 +52,15 @@ class RecordingTemplate extends React.Component {
               <MapKit
                 style={{ width: '100%', height: '400px' }}
                 tokenOrCallback="eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkZYVDc3QjJLVUMifQ.eyJpc3MiOiJBNVJMUDgyRDdDIiwiaWF0IjoxNTM4MTQzNzgzLjkzNiwiZXhwIjoxNTUzOTIyNTgzLjkzNn0.9hT8_bTzvzAVQbfNH4Yn31asFO1kpSKFs9i9RTHKTHjZWDkPfXzCZnyjUA6o-JqB14K1X9ML_4H4amDT0DY4tg"
+                mapType="satellite"
+                showsUserLocationControl
                 defaultCenter={[data.location.lat, data.location.lon]}
               >
                 <Marker
                   latitude={data.location.lat}
                   longitude={data.location.lon}
                   title={data.title.title}
+                  color={'#232B76'}
                 />
               </MapKit>
             </div>

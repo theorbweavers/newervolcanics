@@ -1,55 +1,100 @@
 import React from 'react';
+import Link from 'gatsby-link';
+import { graphql } from 'gatsby';
 import { MapKit, Marker } from '../components/MapKit';
 import * as PropTypes from 'prop-types';
 import Article from '../components/article';
 import Layout from '../components/layout';
 import RecordingItem from '../components/RecordingItem';
+import ReactDOMServer from 'react-dom/server';
+import styles from './mapkit.module.css';
 
 const propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-class ReleaseTemplate extends React.Component {
-  render() {
-    const data = this.props.data.contentfulRelease;
-    const recordings = data.recordings;
+const ReleaseTemplate = ({ data }) => {
+  const release = data.contentfulRelease;
+  const recordings = release.recordings;
 
-    return (
-      <Layout>
-        <Article>
-          <h1>{data.title.title}</h1>
-          <MapKit
-            style={{ width: '100%', height: '400px', marginBottom: '2rem' }}
-            tokenOrCallback="eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkZYVDc3QjJLVUMifQ.eyJpc3MiOiJBNVJMUDgyRDdDIiwiaWF0IjoxNTM4MTQzNzgzLjkzNiwiZXhwIjoxNTUzOTIyNTgzLjkzNn0.9hT8_bTzvzAVQbfNH4Yn31asFO1kpSKFs9i9RTHKTHjZWDkPfXzCZnyjUA6o-JqB14K1X9ML_4H4amDT0DY4tg"
-            defaultCenter={[-37.803044286771524, 144.92947483383796]}
-          >
-            {recordings &&
-              recordings.map(
-                (item, index) =>
-                  item.location && (
-                    <Marker
-                      key={index}
-                      latitude={item.location.lat}
-                      longitude={item.location.lon}
-                      title={item.title.title}
-                    />
-                  )
-              )}
-          </MapKit>
-        </Article>
-        {recordings &&
-          recordings.map((item, index) => (
-            <RecordingItem
-              key={`recording_${index}`}
-              item={item}
-              trackNumber={index + 1}
-            />
-          ))}
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout>
+      <Article>
+        <h1>{release.title.title}</h1>
+        <MapKit
+          style={{ width: '100%', height: '400px', marginBottom: '2rem' }}
+          tokenOrCallback="eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkZYVDc3QjJLVUMifQ.eyJpc3MiOiJBNVJMUDgyRDdDIiwiaWF0IjoxNTM4MTQzNzgzLjkzNiwiZXhwIjoxNTUzOTIyNTgzLjkzNn0.9hT8_bTzvzAVQbfNH4Yn31asFO1kpSKFs9i9RTHKTHjZWDkPfXzCZnyjUA6o-JqB14K1X9ML_4H4amDT0DY4tg"
+          mapType="satellite"
+          showsUserLocationControl
+          defaultCenter={[-37.816121, 144.917324]}
+        >
+          {recordings &&
+            recordings.map((item, index) => {
+              item.trackNumber = index + 1;
 
+              if (item.location)
+                return (
+                  <Marker
+                    key={index}
+                    latitude={item.location.lat}
+                    longitude={item.location.lon}
+                    title={`${item.trackNumber}. ${item.title.title}`}
+                    color={'#232B76'}
+                    data={item}
+                    calloutElement={
+                      release.showAudio ? calloutElement : calloutElementAnchor
+                    }
+                  />
+                );
+            })}
+        </MapKit>
+      </Article>
+      {recordings &&
+        recordings.map((item, index) => (
+          <RecordingItem
+            key={`recording_${index}`}
+            item={item}
+            trackNumber={index + 1}
+            showAudio={release.showAudio}
+          />
+        ))}
+    </Layout>
+  );
+};
+
+const calloutElement = annotation => {
+  const data = annotation.data;
+  const markup = ReactDOMServer.renderToStaticMarkup(
+    <div className={styles.callout}>
+      <h4>
+        <Link to={`/recording/${data.slug}.html`}>
+          {data.trackNumber}. {data.title.title}
+        </Link>
+      </h4>
+    </div>
+  );
+
+  // TODO: Has to be memory intensive
+  const parser = new DOMParser();
+  const parsed = parser.parseFromString(markup, 'text/html');
+  return parsed.body.firstChild;
+};
+const calloutElementAnchor = annotation => {
+  const data = annotation.data;
+  const markup = ReactDOMServer.renderToStaticMarkup(
+    <div className={styles.callout}>
+      <h4>
+        <a href={`#${data.slug}`}>
+          {data.trackNumber}. {data.title.title}
+        </a>
+      </h4>
+    </div>
+  );
+  // TODO: Has to be memory intensive
+  const parser = new DOMParser();
+  const parsed = parser.parseFromString(markup, 'text/html');
+  return parsed.body.firstChild;
+};
 ReleaseTemplate.propTypes = propTypes;
 
 export default ReleaseTemplate;
@@ -67,6 +112,7 @@ export const releaseQuery = graphql`
           html
         }
       }
+      showAudio
       recordings {
         id
         slug

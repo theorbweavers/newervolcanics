@@ -32,15 +32,15 @@
   text-align: center;
   border-top: solid 1px #000;
   border-bottom: solid 1px #000;
+  padding: 1rem 0;
 }
 
 .title a {
   display: block;
   text-decoration: none;
   text-align: center;
-  padding: 1rem 0;
   font-size: 1.5rem;
-  color: #000;
+  color: hsla(0, 0%, 0%, 0.8);
 }
 
 .title a:hover,

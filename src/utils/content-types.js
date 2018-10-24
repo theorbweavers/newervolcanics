@@ -2,26 +2,32 @@ module.exports = contentTypes = [
   {
     name: 'page',
     graphName: 'allContentfulPage',
-    path: '/',
+    path: '',
     template: './src/templates/page.js',
     templateBase: './src/templates/',
   },
   {
     name: 'post',
     graphName: 'allContentfulPost',
-    path: '/news/',
+    path: '/news',
     template: './src/templates/post.js',
   },
   {
     name: 'release',
     graphName: 'allContentfulRelease',
-    path: '/release/',
+    path: '/release',
     template: './src/templates/release.js',
   },
   {
     name: 'recording',
     graphName: 'allContentfulRecording',
-    path: '/recording/',
+    path: '/recording',
     template: './src/templates/recording.js',
+  },
+  {
+    name: 'person',
+    graphName: 'allContentfulPerson',
+    path: '/person',
+    template: './src/templates/person.js',
   },
 ];

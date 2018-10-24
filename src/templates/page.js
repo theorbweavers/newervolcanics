@@ -1,12 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import Link from 'gatsby-link';
 import * as PropTypes from 'prop-types';
 
-import Article from '../components/article';
-// import ContentTypes from '../components/content-types'
-import Collection from '../components/collection';
+import Article from '../components/Article';
+import Layout from '../components/Layout';
 
 const propTypes = {
   data: PropTypes.object.isRequired,
@@ -15,15 +13,20 @@ const propTypes = {
 class PageTemplate extends React.Component {
   render() {
     const data = this.props.data.contentfulPage;
-    // let ContentIndex = ContentTypes[data.index];
-    console.log('Props Data', this.props);
+
     return (
-      <div>
-        <Article data={data} />
-        {/* { ContentIndex &&
-          <ContentIndex />
-        } */}
-      </div>
+      <Layout>
+        <Article>
+          <h1>{data.title.title}</h1>
+          {data.body && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: data.body.childMarkdownRemark.html,
+              }}
+            />
+          )}
+        </Article>
+      </Layout>
     );
   }
 }
@@ -39,6 +42,11 @@ export const pageQuery = graphql`
       slug
       title {
         title
+      }
+      body {
+        childMarkdownRemark {
+          html
+        }
       }
     }
   }

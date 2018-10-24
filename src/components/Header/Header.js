@@ -7,7 +7,7 @@ import styles from './header.module.css';
 const Header = props => (
   <header className={styles.header}>
     <div className={styles.siteName}>Newer Volcanics</div>
-    <Navigation location={props.location} />
+    <Navigation />
   </header>
 );
 
