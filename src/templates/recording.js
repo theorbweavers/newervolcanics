@@ -42,6 +42,14 @@ class RecordingTemplate extends React.Component {
               />
             </div>
           )}
+          {data.scores &&
+            data.scores.map((item, index) => (
+              <div key={`${item.id}-${index}`}>
+                <a id={item.id} href={item.file.url} target="_blank">
+                  🎼 Download {item.title} [PDF]
+                </a>
+              </div>
+            ))}
           {data.lyrics && (
             <div>
               <pre>{data.lyrics.lyrics}</pre>
@@ -88,6 +96,13 @@ export const recordingQuery = graphql`
       }
       audio {
         id
+        file {
+          url
+        }
+      }
+      scores {
+        id
+        title
         file {
           url
         }

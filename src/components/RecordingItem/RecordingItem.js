@@ -30,6 +30,15 @@ const RecordingItem = ({ trackNumber, item, showAudio }) => {
               />
             </div>
           )}
+        {showAudio &&
+          item.scores &&
+          item.scores.map((item, index) => (
+            <div key={`${item.id}-${index}`}>
+              <a id={item.id} href={item.file.url} target="_blank">
+                🎼 Download {item.title} [PDF]
+              </a>
+            </div>
+          ))}
         {item.lyrics && (
           <div>
             <pre>{item.lyrics.lyrics}</pre>

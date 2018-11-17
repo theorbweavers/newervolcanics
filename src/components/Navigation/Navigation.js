@@ -41,7 +41,7 @@ const Navigation = props => (
           <li>
             <Link
               className={isActive(location.pathname, /\/release*/)}
-              to="/release/songs.html"
+              to="/release/set-list.html"
             >
               Songs
             </Link>

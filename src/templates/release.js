@@ -128,6 +128,13 @@ export const releaseQuery = graphql`
             url
           }
         }
+        scores {
+          id
+          title
+          file {
+            url
+          }
+        }
         location {
           lat
           lon
