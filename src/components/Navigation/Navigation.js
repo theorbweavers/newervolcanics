@@ -41,9 +41,33 @@ const Navigation = props => (
           <li>
             <Link
               className={isActive(location.pathname, /\/release*/)}
-              to="/release/set-list.html"
+              to="/release/songs.html"
             >
               Songs
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={isActive(location.pathname, /song-maps*/)}
+              to="/song-maps.html"
+            >
+              Song Maps
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={isActive(location.pathname, /events*/)}
+              to="/events.html"
+            >
+              Events
+            </Link>
+          </li>
+          <li>
+            <Link
+              className={isActive(location.pathname, /program*/)}
+              to="/program.html"
+            >
+              Program
             </Link>
           </li>
         </ul>

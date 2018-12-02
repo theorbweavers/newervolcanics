@@ -21,6 +21,13 @@ const ReleaseTemplate = ({ data }) => {
     <Layout>
       <Article>
         <h1>{release.title.title}</h1>
+        {release.linerNotes && (
+          <div
+            dangerouslySetInnerHTML={{
+              __html: release.linerNotes.childMarkdownRemark.html,
+            }}
+          />
+        )}
         <MapKit
           style={{ width: '100%', height: '400px', marginBottom: '2rem' }}
           tokenOrCallback="eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkZYVDc3QjJLVUMifQ.eyJpc3MiOiJBNVJMUDgyRDdDIiwiaWF0IjoxNTM4MTQzNzgzLjkzNiwiZXhwIjoxNTUzOTIyNTgzLjkzNn0.9hT8_bTzvzAVQbfNH4Yn31asFO1kpSKFs9i9RTHKTHjZWDkPfXzCZnyjUA6o-JqB14K1X9ML_4H4amDT0DY4tg"

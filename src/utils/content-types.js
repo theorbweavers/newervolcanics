@@ -30,4 +30,10 @@ module.exports = contentTypes = [
     path: '/person',
     template: './src/templates/person.js',
   },
+  {
+    name: 'group',
+    graphName: 'allContentfulGroup',
+    path: '/group',
+    template: './src/templates/group.js',
+  },
 ];

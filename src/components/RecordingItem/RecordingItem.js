@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link';
 
 import styles from './recording-item.module.css';
-import Article from '../article';
+import Article from '../Article';
 
 const RecordingItem = ({ trackNumber, item, showAudio }) => {
   return (

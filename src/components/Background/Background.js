@@ -13,7 +13,6 @@ const RouteContainer = posed.div({
   exit: { opacity: 0, transition: { duration: 1000 } },
 });
 const Background = ({ location }) => {
-  console.log('Location', location);
   return (
     <PoseGroup>
       <RouteContainer key={(location && location.key) || 'test'}>

@@ -50,3 +50,25 @@
     padding: 1rem;
   }
 }
+
+.content a {
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 5px;
+  transition: all 300ms ease;
+  color: #0d0d0d;
+  padding: 0.25rem;
+  position: relative;
+  border-bottom: 1px solid #0d0d0d;
+}
+
+.content a:hover,
+.content a:focus,
+.content a:active {
+  background-color: #0d0d0d;
+  color: #fdfdfd;
+}

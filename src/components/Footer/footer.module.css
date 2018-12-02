@@ -28,6 +28,100 @@
   border: solid 1px #ffffff;
   border-radius: 100%;
 }
+
+.supporter-logos:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(-3.5rem - 1px);
+  left: calc(50% - 1px);
+  width: 1px;
+  height: calc(3.5rem + 1px);
+  background: #ffffff;
+}
+
+.supporters {
+  position: relative;
+  z-index: 2;
+  max-width: 54rem;
+  margin: 0 auto;
+}
+
+.supporter-logos {
+  list-style: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #020202;
+  flex-shrink: 0;
+  max-width: 54rem;
+  margin: 0 auto;
+}
+.supporter-logos img {
+  max-width: 8rem;
+  max-height: 3rem;
+}
+
+.supporter-logo img {
+  margin: 1rem;
+}
+.supporter-logo,
+.supporter-logo:hover,
+.supporter-logo:focus,
+.supporter-logo:active {
+  border-bottom: none !important;
+  background-color: transparent !important;
+  color: #020202 !important;
+}
+/* Header */
+.header {
+  display: flex;
+  color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  margin: 3.5rem auto;
+  align-items: center;
+  transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out,
+    opacity 0.325s ease-in-out;
+
+  max-width: 66%;
+  text-align: center;
+  z-index: 1;
+}
+
+.title {
+  margin: 0;
+  padding: 0.25rem 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.875rem;
+  letter-spacing: 0.2rem;
+  border-top: solid 1px #ffffff;
+  border-bottom: solid 1px #ffffff;
+  text-transform: uppercase;
+}
+
+.header > * {
+  transition: opacity 0.325s ease-in-out;
+  position: relative;
+  margin-top: 3.5rem;
+}
+
+.header > *:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(-3.5rem - 1px);
+  left: calc(50% - 1px);
+  width: 1px;
+  height: calc(3.5rem + 1px);
+  background: #ffffff;
+}
+
+.header > :first-child {
+  margin-top: 0;
+}
+
 .copyright {
   font-size: 0.6rem;
   opacity: 0.75;
@@ -53,4 +147,22 @@
 .volcano {
   font-size: 3rem;
   margin-top: 2rem;
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 768px) {
+  .header {
+    max-width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .supporters {
+    max-width: 100%;
+    margin: 0 1rem;
+  }
+
+  .supporter-logos {
+    flex-direction: column;
+  }
 }

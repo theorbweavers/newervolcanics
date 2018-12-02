@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import ScrollToTop from 'react-scroll-up';
 import { StaticQuery, graphql } from 'gatsby';
 import { LocationProvider } from '@reach/router';
 import Background from '../Background';
@@ -34,7 +35,7 @@ const Layout = ({ children }) => (
               {
                 name: 'keywords',
                 content:
-                  'the orbweavers, newer volcanics, marita dyson, stuart flanagan',
+                  'the orbweavers, newer volcanics, marita dyson, stuart flanagan, west melbourne, melbourne, basalt, stone, stoneopolis',
               },
             ]}
           >
@@ -48,6 +49,17 @@ const Layout = ({ children }) => (
             {({ location }) => <Background location={location} />}
           </LocationProvider>
           <Header />
+          <ScrollToTop showUnder={160} style={{ zIndex: 900 }}>
+            <div
+              style={{
+                color: '#fff',
+                zIndex: 900,
+                textShadow: '2px 2px #000000',
+              }}
+            >
+              TOP
+            </div>
+          </ScrollToTop>
           <main className="main">{children}</main>
           <Footer />
         </>
