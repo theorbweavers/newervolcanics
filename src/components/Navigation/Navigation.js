@@ -70,6 +70,9 @@ const Navigation = props => (
               Program
             </Link>
           </li>
+          <li>
+            <a href="https://shop.newervolcanics.com">Shop</a>
+          </li>
         </ul>
       </nav>
     )}
