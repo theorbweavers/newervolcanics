@@ -69,13 +69,9 @@ const Footer = props => (
     </div>
     <footer className={styles.footer}>
       <div className={styles.logo}>
-        <a href="http://www.theorbweavers.com">
-          <img src={logo} alt="The Orbweavers - Logo" />
-        </a>
+        <img src={logo} alt="The Orbweavers - Logo" />
       </div>
-      <p className={styles.copyright}>
-        &copy; <a href="http://www.theorbweavers.com">The Orbweavers</a>
-      </p>
+      <p className={styles.copyright}>&copy; The Orbweavers</p>
     </footer>
   </>
 );

@@ -56,10 +56,10 @@ const Navigation = props => (
           </li>
           <li>
             <Link
-              className={isActive(location.pathname, /events*/)}
-              to="/events.html"
+              className={isActive(location.pathname, /media*/)}
+              to="/media/newer-volcanics-the-substation-30-11-2018.html"
             >
-              Events
+              Gallery
             </Link>
           </li>
           <li>
@@ -69,9 +69,6 @@ const Navigation = props => (
             >
               Program
             </Link>
-          </li>
-          <li>
-            <a href="https://shop.newervolcanics.com">Shop</a>
           </li>
         </ul>
       </nav>
