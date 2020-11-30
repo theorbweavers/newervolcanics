@@ -10,7 +10,7 @@ import Footer from '../Footer';
 
 import './layout.css';
 
-const Layout = ({ children }) => (
+const Layout = ({ children, headless = false }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -48,7 +48,7 @@ const Layout = ({ children }) => (
           <LocationProvider>
             {({ location }) => <Background location={location} />}
           </LocationProvider>
-          <Header />
+          {!headless && <Header title="Newer Volcanics" />}
           <ScrollToTop showUnder={160} style={{ zIndex: 900 }}>
             <div
               style={{
@@ -61,7 +61,7 @@ const Layout = ({ children }) => (
             </div>
           </ScrollToTop>
           <main className="main">{children}</main>
-          <Footer />
+          {!headless && <Footer />}
         </>
       );
     }}

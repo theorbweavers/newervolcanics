@@ -21,16 +21,18 @@ const ReleaseTemplate = ({ data }) => {
     <Layout>
       <Article>
         <h1>{release.title.title}</h1>
-        {release.linerNotes && (
+        {release.body && (
           <div
             dangerouslySetInnerHTML={{
-              __html: release.linerNotes.childMarkdownRemark.html,
+              __html: release.body.childMarkdownRemark.html,
             }}
           />
         )}
+        <p>&nbsp;</p>
+        <h2>Newer Volcanics: Song Lyrics</h2>
         <MapKit
           style={{ width: '100%', height: '400px', marginBottom: '2rem' }}
-          tokenOrCallback="eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkZYVDc3QjJLVUMifQ.eyJpc3MiOiJBNVJMUDgyRDdDIiwiaWF0IjoxNTM4MTQzNzgzLjkzNiwiZXhwIjoxNTUzOTIyNTgzLjkzNn0.9hT8_bTzvzAVQbfNH4Yn31asFO1kpSKFs9i9RTHKTHjZWDkPfXzCZnyjUA6o-JqB14K1X9ML_4H4amDT0DY4tg"
+          tokenOrCallback="eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJZNU5VNzRMRzkifQ.eyJpc3MiOiJBNVJMUDgyRDdDIiwiaWF0IjoxNTU2NjE1ODM3LjA4MywiZXhwIjoxNTcyMzk0NjM3LjA4M30.TzMjpwPV_LSbND6uajKoNe1V8oC3S_bt3CC5zvbXXXjKwIO6Bshferq61Fyio6tVkNlAyImt_DN5PvK5Z3U7Lg"
           mapType="satellite"
           showsUserLocationControl
           defaultCenter={[-37.816121, 144.917324]}
@@ -115,6 +117,11 @@ export const releaseQuery = graphql`
         title
       }
       linerNotes {
+        childMarkdownRemark {
+          html
+        }
+      }
+      body {
         childMarkdownRemark {
           html
         }

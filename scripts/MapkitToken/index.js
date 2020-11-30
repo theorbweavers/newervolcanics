@@ -29,7 +29,7 @@ const generateMapkitAuthToken = (
     exp: expireAt,
   };
 
-  if (process.env.ORIGIN) claims.origin = process.env.ORIGIN;
+  // if (process.env.ORIGIN) claims.origin = process.env.ORIGIN;
 
   const jwToken = jwt.sign(claims, authKey, { header: header });
   return jwToken;

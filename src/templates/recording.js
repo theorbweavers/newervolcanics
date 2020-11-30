@@ -15,7 +15,7 @@ class RecordingTemplate extends React.Component {
   render() {
     const data = this.props.data.contentfulRecording;
     return (
-      <Layout>
+      <Layout headless>
         <Article>
           <h1>{data.title.title}</h1>
           {data.release && (
@@ -42,6 +42,15 @@ class RecordingTemplate extends React.Component {
               />
             </div>
           )}
+          {data.image && (
+            <div>
+              <img
+                id={data.image.id}
+                style={{ width: '100%' }}
+                src={data.image.file.url}
+              />
+            </div>
+          )}
           {data.scores &&
             data.scores.map((item, index) => (
               <div key={`${item.id}-${index}`}>
@@ -59,7 +68,7 @@ class RecordingTemplate extends React.Component {
             <div>
               <MapKit
                 style={{ width: '100%', height: '400px' }}
-                tokenOrCallback="eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkZYVDc3QjJLVUMifQ.eyJpc3MiOiJBNVJMUDgyRDdDIiwiaWF0IjoxNTM4MTQzNzgzLjkzNiwiZXhwIjoxNTUzOTIyNTgzLjkzNn0.9hT8_bTzvzAVQbfNH4Yn31asFO1kpSKFs9i9RTHKTHjZWDkPfXzCZnyjUA6o-JqB14K1X9ML_4H4amDT0DY4tg"
+                tokenOrCallback="eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IkJZNU5VNzRMRzkifQ.eyJpc3MiOiJBNVJMUDgyRDdDIiwiaWF0IjoxNTU2NjE1ODM3LjA4MywiZXhwIjoxNTcyMzk0NjM3LjA4M30.TzMjpwPV_LSbND6uajKoNe1V8oC3S_bt3CC5zvbXXXjKwIO6Bshferq61Fyio6tVkNlAyImt_DN5PvK5Z3U7Lg"
                 mapType="satellite"
                 showsUserLocationControl
                 defaultCenter={[data.location.lat, data.location.lon]}
@@ -96,6 +105,13 @@ export const recordingQuery = graphql`
       }
       audio {
         id
+        file {
+          url
+        }
+      }
+      image {
+        id
+        title
         file {
           url
         }

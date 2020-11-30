@@ -36,4 +36,10 @@ module.exports = contentTypes = [
     path: '/group',
     template: './src/templates/group.js',
   },
+  {
+    name: 'mediaGallery',
+    graphName: 'allContentfulMediaGallery',
+    path: '/media',
+    template: './src/templates/media-gallery.js',
+  },
 ];
